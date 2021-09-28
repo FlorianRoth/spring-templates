@@ -6,6 +6,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @Configuration
-@Import({FeignClientConfiguration.class, RestTemplateClientConfiguration.class})
+// Using @Import instead of @ComponentScan to have more control over what is picked up
+@Import({
+        FeignClientConfiguration.class,
+        RestTemplateClientConfiguration.class
+})
 public class MyMicroserviceConfiguration {
 }

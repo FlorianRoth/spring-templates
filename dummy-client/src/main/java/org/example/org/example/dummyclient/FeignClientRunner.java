@@ -1,7 +1,6 @@
 package org.example.org.example.dummyclient;
 
 import org.example.client.feign.ExampleFeignClient;
-import org.example.client.resttemplate.api.HelloWorldResourceApi;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,16 +8,16 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CommandLineAppStartupRunner implements CommandLineRunner {
+public class FeignClientRunner implements CommandLineRunner {
 
-    private static final Logger LOG = LoggerFactory.getLogger(CommandLineAppStartupRunner.class);
+    private static final Logger LOG = LoggerFactory.getLogger(FeignClientRunner.class);
 
     private final ExampleFeignClient client;
 
     @Value("${config-name}")
     private String configName;
 
-    public CommandLineAppStartupRunner(ExampleFeignClient client, HelloWorldResourceApi resourceApi) {
+    public FeignClientRunner(ExampleFeignClient client) {
         this.client = client;
     }
 
